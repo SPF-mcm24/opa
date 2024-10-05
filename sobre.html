@@ -6,20 +6,136 @@
     <title>Sobre o Projeto Condomel - Ribeirão Pires</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        :root {
+            --primary-color: #FFA000;
+            --secondary-color: #FFD54F;
+            --accent-color: #FF6F00;
+            --background-color: #FFFDE7;
+            --text-color: #333;
+            --card-bg: #FFFFFF;
+        }
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+            border-radius: 0 0 50% 50% / 20px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .content img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .content h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            font-size: 2.2rem;
+        }
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            align-items: center;
+        }
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .icon-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .icon-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .icon-list li i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .two-columns {
+                flex-direction: column;
+            }
+            .hero {
+                border-radius: 0 0 25% 25% / 10px;
+            }
+        }
+    </style>
 </head>
-<style>
-    .content h2{
-        text-align: center;
-    }
-    .content img {
-        display: block; /* Centraliza horizontalmente */
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 50%; /* Ajusta conforme necessário */
-        height: auto;
-    }
-</style>
 <body>
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
@@ -36,7 +152,7 @@
                     <button id="increase-font" title="Aumentar tamanho da fonte"><i class="fas fa-plus"></i></button>
                     <button id="decrease-font" title="Diminuir tamanho da fonte"><i class="fas fa-minus"></i></button>
                     <button id="high-contrast" title="Alto contraste"><i class="fas fa-adjust"></i></button>
-                  </div>
+                </div>
             </ul>
             <div class="navbar-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -48,84 +164,104 @@
 
     <main class="about-page">
         <section class="hero">
-            <h1>Sobre o Projeto Condomel</h1>
-            <p class="subtitle">Preservando Abelhas, Cultivando Futuro em Ribeirão Pires</p>
+            <h1>Projeto Condomel</h1>
+            <p class="subtitle">Conservação de abelhas nativas e promoção da meliponicultura em Ribeirão Pires</p>
         </section>
 
         <section class="content">
-            <h2>O Projeto Condomel</h2>
-            <p>O Projeto Condomel é uma iniciativa da Prefeitura de Ribeirão Pires, em parceria com a Embrapa e outras instituições, que visa à conservação das abelhas nativas sem ferrão e a promoção da meliponicultura no município. O projeto busca conscientizar a população sobre a importância ecológica das abelhas nativas e os benefícios da sua criação, além de oferecer capacitação e apoio técnico aos meliponicultores locais.</p>
-
-            <img src="img/condomel-destaque (1).jpg" alt="Foto do Projeto Condomel"> <!-- Substitua pela URL da sua imagem -->
+            <div class="two-columns">
+                <div class="column card">
+                    <h2>Sobre o Projeto</h2>
+                    <p>O Projeto Condomel é uma iniciativa inovadora da Prefeitura de Ribeirão Pires, em parceria com a Embrapa e outras instituições. Nosso objetivo é:</p>
+                    <ul class="icon-list">
+                        <li><i class="fas fa-leaf"></i> Conservar abelhas nativas sem ferrão</li>
+                        <li><i class="fas fa-seedling"></i> Promover a meliponicultura no município</li>
+                        <li><i class="fas fa-book-reader"></i> Conscientizar sobre a importância ecológica das abelhas</li>
+                        <li><i class="fas fa-users"></i> Oferecer capacitação e apoio técnico aos meliponicultores</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <img src="img/condomel-destaque (1).jpg" alt="Foto do Projeto Condomel">
+                </div>
+            </div>
         </section>
 
-        <section class="content">
-            <h2>Objetivos do Projeto</h2>
-            <ul>
-                <li><strong>Conservar as abelhas nativas sem ferrão:</strong> Através da criação de meliponários e da preservação de seus habitats naturais.</li>
-                <li><strong>Promover a meliponicultura:</strong> Incentivando a criação de abelhas nativas como uma atividade sustentável e geradora de renda.</li>
-                <li><strong>Educar a população:</strong> Conscientizando sobre a importância das abelhas nativas para o meio ambiente e a segurança alimentar.</li>
-                <li><strong>Fomentar a pesquisa científica:</strong> Apoiando pesquisas que visam a aprofundar o conhecimento sobre as abelhas nativas e a desenvolver novas tecnologias para a meliponicultura.</li>
+        <section class="content card">
+            <h2>Abelhas do Circuito</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome Popular</th>
+                        <th>Nome Científico</th>
+                        <th>Características</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Manduri</td>
+                        <td>Melipona Marginata</td>
+                        <td>Produz bastante mel apesar do tamanho pequeno, nidifica em pequenos troncos e até construções humanas, ligeiramente defensivas.</td>
+                    </tr>
+                    <tr>
+                        <td>Mirim Emerina</td>
+                        <td>Plebeia Emerina</td>
+                        <td>Ótima polinizadora, produz pouco mel, constrói favos horizontais.</td>
+                    </tr>
+                    <tr>
+                        <td>Jataí</td>
+                        <td>Tetragonisca angustula</td>
+                        <td>Corpo amarelo e olhos verdes, comum em todo o país, não ameaça humanos, nidifica em árvores.</td>
+                    </tr>
+                    <tr>
+                        <td>Mandaçaia</td>
+                        <td>Melipona quadrifasciata</td>
+                        <td>Dócil e produtora de mel, marca ninhos com barro em forma de raios.</td>
+                    </tr>
+                    <tr>
+                        <td>Mirim-Guaçú</td>
+                        <td>Plebeia remota</td>
+                        <td>Dócil, vista polinizando jardins urbanos, ninhos em árvores ou locais rochosos.</td>
+                    </tr>
+                    <tr>
+                        <td>Mirim-Droryana</td>
+                        <td>Plebeia droryana</td>
+                        <td>Dócil, cria ninhos em ocos de árvores ou rochas, entrada em formato de lábio.</td>
+                    </tr>
+                    <tr>
+                        <td>Bugia</td>
+                        <td>Melipona Mondury</td>
+                        <td>Alta produção de mel, habita a Mata Atlântica.</td>
+                    </tr>
+                    <tr>
+                        <td>Iraí</td>
+                        <td>Nannotrigona Testaceicomes</td>
+                        <td>Dóceis e amigáveis, criam ninhos em ocos de árvores, pedras e cercas.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="content card">
+            <h2>Compromisso com a Sustentabilidade</h2>
+            <p>A Prefeitura de Ribeirão Pires demonstra seu compromisso com a sustentabilidade através de diversas ações ambientais, incluindo o "Circuito das Abelhas". Nossos esforços incluem:</p>
+            <ul class="icon-list">
+                <li><i class="fas fa-tree"></i> Projeto "Condomel – Abelhas da Mata" pela Secretaria de Meio Ambiente</li>
+                <li><i class="fas fa-balance-scale"></i> Alinhamento com os ODS da Agenda 2030 da ONU</li>
+                <li><i class="fas fa-apple-alt"></i> Pomar público urbano como espaço de educação ambiental</li>
+                <li><i class="fas fa-hands-helping"></i> Incentivo à participação da comunidade em iniciativas sustentáveis</li>
             </ul>
         </section>
 
-        <section class="content">
-            <h2>Atividades do Projeto</h2>
-            <p>O Projeto Condomel desenvolve diversas atividades, como:</p>
-            <ul>
-                <li><strong>Instalação de meliponários:</strong> Em escolas, parques e outras áreas públicas.</li>
-                <li><strong>Cursos e oficinas de meliponicultura:</strong> Para capacitar os interessados na criação de abelhas nativas.</li>
-                <li><strong>Palestras e eventos educativos:</strong> Para conscientizar a população sobre a importância das abelhas nativas.</li>
-                <li><strong>Pesquisa científica:</strong> Em parceria com universidades e outras instituições de pesquisa.</li>
+        <section class="content card">
+            <h2>Importância da Preservação das Abelhas</h2>
+            <p>As abelhas são polinizadores vitais, desempenhando um papel crucial em nosso ecossistema:</p>
+            <ul class="icon-list">
+                <li><i class="fas fa-seedling"></i> Reprodução de diversas espécies de plantas</li>
+                <li><i class="fas fa-carrot"></i> Contribuição para a produção de alimentos</li>
+                <li><i class="fas fa-leaf"></i> Manutenção da biodiversidade</li>
+                <li><i class="fas fa-balance-scale-right"></i> Equilíbrio dos ecossistemas</li>
             </ul>
-        </section>
-
-        <section class="content">
-            <h2>O que são abelhas nativas?</h2>
-            <p>As abelhas nativas, também conhecidas como abelhas sem ferrão (ASF), são espécies endêmicas do Brasil, diferentes das abelhas africanizadas (<em>Apis mellifera</em>).  Existem mais de 300 espécies de abelhas nativas no Brasil, cada uma com características e hábitos únicos. Elas variam em tamanho, cor e comportamento social, desde as solitárias até as que vivem em colônias complexas.</p>
-        </section>
-
-        <section class="content">
-            <h2>Importância Ecológica das Abelhas Nativas</h2>
-            <p>As abelhas nativas desempenham um papel fundamental na polinização de plantas nativas e cultivadas. Elas são responsáveis pela reprodução de diversas espécies vegetais, contribuindo para a manutenção da biodiversidade e a produção de alimentos.  Sem as abelhas nativas, muitos ecossistemas e culturas agrícolas sofreriam graves consequências.</p>
-        </section>
-
-        <section class="content">
-            <h2>Ameaças às Abelhas Nativas</h2>
-            <p>Infelizmente, as abelhas nativas enfrentam diversas ameaças, muitas delas causadas pela ação humana. As principais ameaças incluem:</p>
-            <ul>
-                <li><strong>Desmatamento e fragmentação de habitat:</strong> A destruição das florestas e a fragmentação dos ecossistemas reduzem as áreas de forrageamento e nidificação das abelhas.</li>
-                <li><strong>Uso indiscriminado de agrotóxicos:</strong> Os agrotóxicos, especialmente os neonicotinoides, são altamente tóxicos para as abelhas, afetando seu sistema nervoso e comprometendo suas atividades vitais.</li>
-                <li><strong>Mudanças climáticas:</strong> As mudanças climáticas alteram os padrões de floração e temperatura, afetando a disponibilidade de recursos para as abelhas e seus ciclos de vida.</li>
-                <li><strong>Introdução de espécies exóticas:</strong> A introdução de espécies exóticas, como a abelha africanizada, pode competir com as abelhas nativas por recursos e transmitir doenças.</li>
-            </ul>
-        </section>
-
-        <section class="content">
-            <h2>Conservação das Abelhas Nativas</h2>
-            <p>A conservação das abelhas nativas é essencial para a manutenção da biodiversidade e a segurança alimentar.  Algumas ações importantes para a conservação incluem:</p>
-            <ul>
-                <li><strong>Preservação e restauração de habitats:</strong> A criação de áreas protegidas e a restauração de ecossistemas degradados são fundamentais para garantir a sobrevivência das abelhas.</li>
-                <li><strong>Agricultura sustentável:</strong> A redução do uso de agrotóxicos e a adoção de práticas agrícolas sustentáveis são essenciais para proteger as abelhas e outros polinizadores.</li>
-                <li><strong>Educação ambiental:</strong> A conscientização da população sobre a importância das abelhas e as ameaças que elas enfrentam é fundamental para promover a sua conservação.</li>
-                <li><strong>Apoio à pesquisa científica:</strong> A pesquisa científica é essencial para aprofundar o conhecimento sobre as abelhas nativas e desenvolver estratégias eficazes para a sua conservação.</li>
-                <li><strong>Criação de meliponários:</strong> A criação de meliponários, com manejo adequado, pode contribuir para a conservação das abelhas nativas e a geração de renda para as comunidades locais.</li>
-            </ul>
-        </section>
-
-        <section class="content">
-            <h2>A.B.E.L.H.A. - Associação Brasileira de Estudos das Abelhas</h2>
-            <p>A A.B.E.L.H.A. é uma organização sem fins lucrativos dedicada à pesquisa e conservação das abelhas no Brasil.  A associação realiza diversas atividades, como a promoção de pesquisas científicas, a organização de eventos e a publicação de materiais educativos.  Para saber mais sobre a A.B.E.L.H.A., visite o site <a href="https://abelha.org.br/">https://abelha.org.br/</a>.</p>
-        </section>
-
-        <section class="card" style="margin-top: 4rem;">
-            <h2>Curiosidades sobre as Abelhas Nativas</h2>
-            <p>As abelhas nativas apresentam uma incrível diversidade de hábitos e comportamentos. Algumas curiosidades incluem:</p>
-            <ul>
-                <li>Algumas espécies constroem ninhos em forma de potes de barro, enquanto outras utilizam cavidades em árvores ou no solo.</li>
-                <li>As abelhas nativas se comunicam por meio de danças, vibrações e feromônios.</li>
-                <li>Algumas espécies de abelhas nativas produzem mel com propriedades medicinais.</li>
-            </ul>
+            <p>A preservação das abelhas é essencial para a saúde do planeta e o bem-estar humano.</p>
         </section>
     </main>
 

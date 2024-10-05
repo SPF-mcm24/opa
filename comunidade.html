@@ -7,6 +7,227 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .community-page {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .hero .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .gallery-header h2 {
+            color: var(--accent-color);
+            font-size: 2rem;
+        }
+        .gallery-stats {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            background: var(--card-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .bee-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .bee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+        .bee-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .bee-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .bee-info h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        .bee-metadata {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        .modal {
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            max-width: 800px;
+            padding: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        #modal-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+        #modal-info {
+            padding: 2rem;
+        }
+        #modal-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        .modal-metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .modal-metadata p {
+            margin: 0;
+        }
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .gallery-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .modal-content {
+                margin: 5% 1rem;
+            }
+        }
+        .modal {
+            display: none; /* Garante que o modal está oculto inicialmente */
+            position: fixed; /* Fixa o modal na viewport */
+            z-index: 1000; /* Garante que o modal fique acima de todo o conteúdo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+            backdrop-filter: blur(5px); /* Embaça o fundo */
+            -webkit-backdrop-filter: blur(5px); /* Suporte para Safari */
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto; /* Centro vertical com um pouco de espaço no topo */
+            max-width: 800px;
+            width: 90%; /* Responsivo, mas não ocupa toda a largura em telas grandes */
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: white;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .close:hover {
+            background-color: #f0f0f0;
+        }
+
+        #modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        #modal-info {
+            padding: 2rem;
+        }
+
+        .modal-metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 10% 5%;
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div vw class="enabled">
@@ -24,7 +245,7 @@
                     <button id="increase-font" title="Aumentar tamanho da fonte"><i class="fas fa-plus"></i></button>
                     <button id="decrease-font" title="Diminuir tamanho da fonte"><i class="fas fa-minus"></i></button>
                     <button id="high-contrast" title="Alto contraste"><i class="fas fa-adjust"></i></button>
-                  </div>
+                </div>
             </ul>
             <div class="navbar-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -40,13 +261,208 @@
             <p class="subtitle">Compartilhe Suas Descobertas Apícolas</p>
         </section>
 
-  
-        
+        <section class="content">
+            <div class="gallery-header">
+                <h2>Registros Mais Recentes</h2>
+                <p class="gallery-stats"><i class="fas fa-camera"></i> 19772 registros encontrados</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Repeat this structure for each bee card -->
+                <div class="bee-card" onclick="openModal(this)">
+                    <img src="img/abel1.png" alt="Abelha Jataí">
+                    <div class="bee-info">
+                        <h3>Abelha Jataí</h3>
+                        <div class="bee-metadata">
+                            <i class="fas fa-user"></i>
+                            <span>Maria Silva</span>
+                        </div>
+                        <div class="bee-metadata">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ribeirão Pires/SP</span>
+                        </div>
+                    </div>
+                    <div class="hidden-info" style="display: none;">
+                        <p><strong>Nome científico:</strong> Tetragonisca angustula</p>
+                        <p><strong>Sexo:</strong> Operária</p>
+                        <p><strong>Feita em:</strong> 15/09/2024</p>
+                        <p><strong>Publicada em:</strong> 16/09/2024</p>
+                        <p><strong>Câmera:</strong> Canon EOS R5</p>
+                        <p><strong>Observações:</strong> Abelha coletando pólen em flor de ipê-amarelo.</p>
+                    </div>
+                </div>
+                <div class="bee-card" onclick="openModal(this)">
+                    <img src="img/abel2.png" alt="Abelha Jataí">
+                    <div class="bee-info">
+                        <h3>Abelha Jataí</h3>
+                        <div class="bee-metadata">
+                            <i class="fas fa-user"></i>
+                            <span>João Ferreira</span>
+                        </div>
+                        <div class="bee-metadata">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>São Paulo/SP</span>
+                        </div>
+                    </div>
+                    <div class="hidden-info" style="display: none;">
+                        <p><strong>Nome científico:</strong> Tetragonisca angustula</p>
+                        <p><strong>Sexo:</strong> Operária</p>
+                        <p><strong>Feita em:</strong> 12/09/2024</p>
+                        <p><strong>Publicada em:</strong> 13/09/2024</p>
+                        <p><strong>Câmera:</strong> Nikon D850</p>
+                        <p><strong>Observações:</strong> Abelha próxima ao seu ninho.</p>
+                    </div>
+                </div>
+                
+                <div class="bee-card" onclick="openModal(this)">
+                    <img src="img/abel3.png" alt="Abelha Mandaguari">
+                    <div class="bee-info">
+                        <h3>Abelha Mandaguari</h3>
+                        <div class="bee-metadata">
+                            <i class="fas fa-user"></i>
+                            <span>Ana Costa</span>
+                        </div>
+                        <div class="bee-metadata">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Curitiba/PR</span>
+                        </div>
+                    </div>
+                    <div class="hidden-info" style="display: none;">
+                        <p><strong>Nome científico:</strong> Scaptotrigona bipunctata</p>
+                        <p><strong>Sexo:</strong> Operária</p>
+                        <p><strong>Feita em:</strong> 20/08/2024</p>
+                        <p><strong>Publicada em:</strong> 21/08/2024</p>
+                        <p><strong>Câmera:</strong> Sony Alpha 7 III</p>
+                        <p><strong>Observações:</strong> Abelha polinizando flor silvestre.</p>
+                    </div>
+                </div>
+                
+                <div class="bee-card" onclick="openModal(this)">
+                    <img src="img/abel4.png" alt="Abelha Europa">
+                    <div class="bee-info">
+                        <h3>Abelha Europa</h3>
+                        <div class="bee-metadata">
+                            <i class="fas fa-user"></i>
+                            <span>Roberto Lima</span>
+                        </div>
+                        <div class="bee-metadata">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Campinas/SP</span>
+                        </div>
+                    </div>
+                    <div class="hidden-info" style="display: none;">
+                        <p><strong>Nome científico:</strong> Apis mellifera</p>
+                        <p><strong>Sexo:</strong> Operária</p>
+                        <p><strong>Feita em:</strong> 10/07/2024</p>
+                        <p><strong>Publicada em:</strong> 12/07/2024</p>
+                        <p><strong>Câmera:</strong> Canon EOS 90D</p>
+                        <p><strong>Observações:</strong> Abelha coletando néctar em flor de laranjeira.</p>
+                    </div>
+                </div>
+                
+                <div class="bee-card" onclick="openModal(this)">
+                    <img src="img/abel5.png" alt="Abelha Iraí">
+                    <div class="bee-info">
+                        <h3>Abelha Iraí</h3>
+                        <div class="bee-metadata">
+                            <i class="fas fa-user"></i>
+                            <span>Luana Rocha</span>
+                        </div>
+                        <div class="bee-metadata">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rio de Janeiro/RJ</span>
+                        </div>
+                    </div>
+                    <div class="hidden-info" style="display: none;">
+                        <p><strong>Nome científico:</strong> Nannotrigona testaceicornis</p>
+                        <p><strong>Sexo:</strong> Operária</p>
+                        <p><strong>Feita em:</strong> 05/06/2024</p>
+                        <p><strong>Publicada em:</strong> 06/06/2024</p>
+                        <p><strong>Câmera:</strong> Nikon Z6 II</p>
+                        <p><strong>Observações:</strong> Abelha construindo entrada do ninho.</p>
+                    </div>
+                </div>
+                
+                <div class="bee-card" onclick="openModal(this)">
+                    <img src="img/abel6.png" alt="Abelha Tubuna">
+                    <div class="bee-info">
+                        <h3>Abelha Tubuna</h3>
+                        <div class="bee-metadata">
+                            <i class="fas fa-user"></i>
+                            <span>Carlos Mendes</span>
+                        </div>
+                        <div class="bee-metadata">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Salvador/BA</span>
+                        </div>
+                    </div>
+                    <div class="hidden-info" style="display: none;">
+                        <p><strong>Nome científico:</strong> Scaptotrigona depilis</p>
+                        <p><strong>Sexo:</strong> Operária</p>
+                        <p><strong>Feita em:</strong> 30/05/2024</p>
+                        <p><strong>Publicada em:</strong> 31/05/2024</p>
+                        <p><strong>Câmera:</strong> Fujifilm X-T4</p>
+                        <p><strong>Observações:</strong> Abelha forrageira retornando à colmeia.</p>
+                    </div>
+                </div>
+                
+                
+            
+            </div>
+        </section>
     </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="Abelha em destaque">
+            <div id="modal-info"></div>
+        </div>
+    </div>
 
     <footer>
         <!-- ... conteúdo do footer ... -->
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
     <script src="login.js"></script>
+    <script>
+        // Script atualizado para garantir o funcionamento correto do modal
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modal-image");
+        const modalInfo = document.getElementById("modal-info");
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        function openModal(card) {
+            const cardImg = card.querySelector('img');
+            const visibleInfo = card.querySelector('.bee-info').innerHTML;
+            const hiddenInfo = card.querySelector('.hidden-info').innerHTML;
+            
+            modalImg.src = cardImg.src;
+            modalImg.alt = cardImg.alt;
+            
+            modalInfo.innerHTML = `
+                ${visibleInfo}
+                <div class="modal-metadata">
+                    ${hiddenInfo}
+                </div>
+            `;
+            
+            modal.style.display = "block";
+            document.body.style.overflow = 'hidden'; // Previne rolagem do fundo
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = ''; // Restaura a rolagem
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = ''; // Restaura a rolagem
+            }
+        }
+    </script>
 </body>
 </html>

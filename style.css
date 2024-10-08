@@ -970,3 +970,257 @@ main {
 .auth-form button:hover {
     background-color: var(--primary-color);
 }
+.footer {
+    background-color: #FFA000;
+    color: white;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.footer-section p,
+.footer-section ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul {
+    list-style-type: none;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #FF6F00;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Add these CSS rules to your existing stylesheet */
+
+/* Color blindness filters */
+body.color-blind-filter.protanopia {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="protanopia">\
+        <feColorMatrix type="matrix" values="0.567, 0.433, 0,     0, 0 \
+                                            0.558, 0.442, 0,     0, 0 \
+                                            0,     0.242, 0.758, 0, 0 \
+                                            0,     0,     0,     1, 0"/>\
+        </filter>\
+        </svg>#protanopia');
+}
+
+body.color-blind-filter.deuteranopia {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="deuteranopia">\
+        <feColorMatrix type="matrix" values="0.625, 0.375, 0,   0, 0 \
+                                            0.7,   0.3,   0,   0, 0 \
+                                            0,     0.3,   0.7, 0, 0 \
+                                            0,     0,     0,   1, 0"/>\
+        </filter>\
+        </svg>#deuteranopia');
+}
+
+body.color-blind-filter.tritanopia {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="tritanopia">\
+        <feColorMatrix type="matrix" values="0.95, 0.05,  0,     0, 0 \
+                                            0,    0.433, 0.567, 0, 0 \
+                                            0,    0.475, 0.525, 0, 0 \
+                                            0,    0,     0,     1, 0"/>\
+        </filter>\
+        </svg>#tritanopia');
+}
+
+body.color-blind-filter.deuteranomaly {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="deuteranomaly">\
+        <feColorMatrix type="matrix" values="0.8,   0.2,   0,     0, 0 \
+                                            0.258, 0.742, 0,     0, 0 \
+                                            0,     0.142, 0.858, 0, 0 \
+                                            0,     0,     0,     1, 0"/>\
+        </filter>\
+        </svg>#deuteranomaly');
+}
+
+body.color-blind-filter.tritanomaly {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="tritanomaly">\
+        <feColorMatrix type="matrix" values="0.967, 0.033, 0,     0, 0 \
+                                            0,     0.733, 0.267, 0, 0 \
+                                            0,     0.183, 0.817, 0, 0 \
+                                            0,     0,     0,     1, 0"/>\
+        </filter>\
+        </svg>#tritanomaly');
+}
+
+body.color-blind-filter.achromatopsia {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="achromatopsia">\
+        <feColorMatrix type="matrix" values="0.299, 0.587, 0.114, 0, 0 \
+                                            0.299, 0.587, 0.114, 0, 0 \
+                                            0.299, 0.587, 0.114, 0, 0 \
+                                            0,     0,     0,     1, 0"/>\
+        </filter>\
+        </svg>#achromatopsia');
+}
+/* Adding the missing filters */
+body.color-blind-filter.protanomaly {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="protanomaly">\
+        <feColorMatrix type="matrix" values="0.817, 0.183, 0, 0, 0 \
+                                            0.333, 0.667, 0, 0, 0 \
+                                            0, 0.125, 0.875, 0, 0 \
+                                            0, 0, 0, 1, 0"/>\
+        </filter>\
+        </svg>#protanomaly');
+}
+
+body.color-blind-filter.deuteranomaly {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="deuteranomaly">\
+        <feColorMatrix type="matrix" values="0.8, 0.2, 0, 0, 0 \
+                                            0.258, 0.742, 0, 0, 0 \
+                                            0, 0.142, 0.858, 0, 0 \
+                                            0, 0, 0, 1, 0"/>\
+        </filter>\
+        </svg>#deuteranomaly');
+}
+
+body.color-blind-filter.tritanomaly {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="tritanomaly">\
+        <feColorMatrix type="matrix" values="0.967, 0.033, 0, 0, 0 \
+                                            0, 0.733, 0.267, 0, 0 \
+                                            0, 0.183, 0.817, 0, 0 \
+                                            0, 0, 0, 1, 0"/>\
+        </filter>\
+        </svg>#tritanomaly');
+}
+
+body.color-blind-filter.achromatomaly {
+    filter: url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg">\
+        <filter id="achromatomaly">\
+        <feColorMatrix type="matrix" values="0.618, 0.320, 0.062, 0, 0 \
+                                            0.163, 0.775, 0.062, 0, 0 \
+                                            0.163, 0.320, 0.516, 0, 0 \
+                                            0, 0, 0, 1, 0"/>\
+        </filter>\
+        </svg>#achromatomaly');
+}
+
+/* Adjust the dropdown to accommodate more options */
+#color-blind-options {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Optional: Add a subtle scrollbar for better UX */
+#color-blind-options::-webkit-scrollbar {
+    width: 6px;
+}
+
+#color-blind-options::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 3px;
+}
+
+#color-blind-options::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Color blindness options styling */
+#color-blind-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+#color-blind-options.hidden {
+    display: none;
+}
+
+#color-blind-options button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#color-blind-options button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #color-blind-options {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+    }
+}

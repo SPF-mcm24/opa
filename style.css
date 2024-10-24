@@ -609,6 +609,7 @@ button:hover {
     background-color: rgba(255, 160, 0, 0.1);
     border-radius: 15px;
     transition: transform 0.3s ease;
+    border: 1px solid var(--primary-color);
 }
 
 .highlight-item:hover {
@@ -1242,4 +1243,5 @@ body.high-contrast img { /* Ajusta imagens para alto contraste */
 }
 
 /* ... (resto do seu CSS) ... */ 
+
 

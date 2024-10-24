@@ -137,26 +137,6 @@ function changeFontSize(direction) {
   document.body.style.fontSize = currentFontSize + '%';
 }
 
-const highContrastButton = document.getElementById('high-contrast');
-let isHighContrast = false;
-
-function toggleHighContrast() {
-    isHighContrast = !isHighContrast;
-    document.body.classList.toggle('high-contrast', isHighContrast);
-    
-    const navbar = document.querySelector('.navbar');
-    const scrollToTopButton = document.getElementById('scrollToTop');
-    
-    if (isHighContrast) {
-        navbar.style.backgroundColor = '#000';
-        scrollToTopButton.style.backgroundColor = '#000';
-    } else {
-        navbar.style.backgroundColor = '';
-        scrollToTopButton.style.backgroundColor = '';
-    }
-}
-
-highContrastButton.addEventListener('click', toggleHighContrast);
 
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');

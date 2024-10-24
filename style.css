@@ -1224,3 +1224,22 @@ body.color-blind-filter.achromatomaly {
         margin-top: 10px;
     }
 }
+/* ... (seu CSS existente) ... */
+
+/* Filtro de alto contraste preto e branco */
+body.high-contrast {
+    filter: grayscale(1) contrast(200%); /* Aplica escala de cinza e aumenta o contraste */
+}
+
+body.high-contrast * {  /* Aplica a todos os elementos dentro do body */
+    background-color: inherit !important; /* Define o fundo como herdado para evitar conflitos */
+    color: inherit !important; /* Define a cor do texto como herdada para evitar conflitos */
+    border-color: inherit !important; /* Define a cor da borda como herdada para evitar conflitos */
+}
+
+body.high-contrast img { /* Ajusta imagens para alto contraste */
+    opacity: 0.8; /* Reduz ligeiramente a opacidade das imagens */
+}
+
+/* ... (resto do seu CSS) ... */ 
+

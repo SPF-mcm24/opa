@@ -134,6 +134,7 @@
                 border-radius: 0 0 25% 25% / 10px;
             }
         }
+        
     </style>
 </head>
 <body>
@@ -151,7 +152,21 @@
                 <div id="accessibility-bar">
                     <button id="increase-font" title="Aumentar tamanho da fonte"><i class="fas fa-plus"></i></button>
                     <button id="decrease-font" title="Diminuir tamanho da fonte"><i class="fas fa-minus"></i></button>
-                    <button id="high-contrast" title="Alto contraste"><i class="fas fa-adjust"></i></button>
+                    <button id="high-contrast" title="Alto contraste"><i class="fas fa-adjust"></i></button> 
+                    <button id="color-blind-toggle" title="Opções de daltonismo">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div id="color-blind-options" class="hidden">
+                    <button data-filter="protanopia">Protanopia</button>
+                    <button data-filter="protanomaly">Protanomalia</button>
+                    <button data-filter="deuteranopia">Deuteranopia</button>
+                    <button data-filter="deuteranomaly">Deuteranomalia</button>
+                    <button data-filter="tritanopia">Tritanopia</button>
+                    <button data-filter="tritanomaly">Tritanomalia</button>
+                    <button data-filter="achromatopsia">Acromatopsia</button>
+                    <button data-filter="achromatomaly">Acromatopsia Parcial</button>
+                    <button data-filter="normal">Visão Normal</button>
                 </div>
                 <li><i class="fas fa-user profile-icon"></i></li>
             </ul>
@@ -311,7 +326,17 @@
             </div>
         </div>
     </footer>
-
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
+    <script src="accessibility.js"></script>
     <script>
                const mobileMenu = document.getElementById('mobile-menu');
 const navbarMenu = document.querySelector('.navbar-menu');
@@ -324,7 +349,6 @@ mobileMenu.addEventListener('click', () => {
 // Acessibilidade
 const increaseFontButton = document.getElementById('increase-font');
 const decreaseFontButton = document.getElementById('decrease-font');
-const highContrastButton = document.getElementById('high-contrast');
 
 let fontSize = 16;
 
@@ -338,8 +362,11 @@ decreaseFontButton.addEventListener('click', () => {
   document.body.style.fontSize = fontSize + 'px';
 });
 
+const highContrastButton = document.getElementById('high-contrast');
+const body = document.body;
+
 highContrastButton.addEventListener('click', () => {
-  document.body.classList.toggle('high-contrast');
+    body.classList.toggle('high-contrast');
 });
     </script>
 </body>

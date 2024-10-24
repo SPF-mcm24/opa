@@ -13,10 +13,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper></div>
-    </div>
+
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-logo">Projeto Condomel</a>
@@ -27,7 +24,7 @@
                 <div id="accessibility-bar">
                     <button id="increase-font" title="Aumentar tamanho da fonte"><i class="fas fa-plus"></i></button>
                     <button id="decrease-font" title="Diminuir tamanho da fonte"><i class="fas fa-minus"></i></button>
-                    <button id="high-contrast" title="Alto contraste"><i class="fas fa-adjust"></i></button>
+                    <button id="high-contrast" title="Alto contraste"><i class="fas fa-adjust"></i></button> 
                     <button id="color-blind-toggle" title="Opções de daltonismo">
                         <i class="fas fa-eye"></i>
                     </button>
@@ -43,6 +40,7 @@
                     <button data-filter="achromatomaly">Acromatopsia Parcial</button>
                     <button data-filter="normal">Visão Normal</button>
                 </div>
+                <li><i class="fas fa-user profile-icon"></i></li>
             </ul>
             <div class="navbar-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -199,25 +197,22 @@
 <div class="scroll-to-top" id="scrollToTop">
 <i class="fas fa-chevron-up"></i>
 </div>
+
+</div>
+
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 <script src="script.js"></script>
 <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-
-        const vlibrasButton = document.querySelector('[vw-access-button]');
-        if (vlibrasButton) {
-            vlibrasButton.addEventListener('click', () => {
-                if (window.VLibras && window.VLibras.Widget) {
-                    const widget = window.VLibras.Widget;
-                    if (typeof widget.togglePlugin === 'function') {
-                        widget.togglePlugin();
-                    } else {
-                        console.error('A função togglePlugin não está disponível.');
-                    }
-                } else {
-                    console.error('VLibras não está disponível');
-                }
-            });
-        }
         document.getElementById('color-blind-toggle').addEventListener('click', function() {
             document.getElementById('color-blind-options').classList.toggle('hidden');
         });
@@ -229,6 +224,13 @@
                 document.getElementById('color-blind-options').classList.add('hidden');
             });
         });
+        const highContrastButton = document.getElementById('high-contrast');
+        const body = document.body;
+
+        highContrastButton.addEventListener('click', () => {
+            body.classList.toggle('high-contrast');
+        });
+        
 </script>
 </body>
 </html>

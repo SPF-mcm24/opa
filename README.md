@@ -1,2 +1,2 @@
 # Sitee
-SPF-mcm24.github.com.io/opa
+SPF-mcm24.github.io/opa

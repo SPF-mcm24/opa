@@ -156,3 +156,43 @@ window.addEventListener('scroll', () => {
   document.getElementById('decrease-font').addEventListener('click', () => changeFontSize('decrease'));
   document.getElementById('high-contrast').addEventListener('click', toggleHighContrast);
   
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenu = document.querySelector('#mobile-menu');
+    const navbarMenu = document.querySelector('.navbar-menu');
+    const colorBlindToggle = document.querySelector('#color-blind-toggle');
+    const colorBlindOptions = document.querySelector('#color-blind-options');
+
+    // Toggle menu mobile
+    mobileMenu.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        navbarMenu.classList.toggle('active');
+        document.body.style.overflow = navbarMenu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    // Fechar menu ao clicar em um link
+    document.querySelectorAll('.navbar-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            navbarMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    // Toggle opções de daltonismo
+    colorBlindToggle.addEventListener('click', () => {
+        colorBlindOptions.classList.toggle('hidden');
+    });
+
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar-menu') && 
+            !e.target.closest('.navbar-toggle') && 
+            !e.target.closest('#color-blind-toggle')) {
+            mobileMenu.classList.remove('active');
+            navbarMenu.classList.remove('active');
+            colorBlindOptions.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    });
+});

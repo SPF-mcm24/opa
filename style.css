@@ -110,7 +110,7 @@ body.high-contrast button {
 body.high-contrast .pontos-lista li:hover {
     background-color: #222;
     padding-left: 20px;
-}
+} 
 
 
 #color-blind-options.hidden {
@@ -1245,3 +1245,150 @@ body.high-contrast img { /* Ajusta imagens para alto contraste */
 /* ... (resto do seu CSS) ... */ 
 
 
+@media screen and (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        background: var(--primary-color);
+    }
+
+    .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        height: 70px;
+    }
+
+    .navbar-logo {
+        display: block;
+        font-size: 1.5rem;
+        z-index: 1001;
+    }
+
+    .navbar-menu {
+        display: flex;
+        position: fixed;
+        top: 70px; /* Altura da navbar */
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        transition: 0.3s ease-in-out;
+        opacity: 0;
+        overflow-y: auto;
+    }
+
+    .navbar-menu.active {
+        left: 0;
+        opacity: 1;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-menu a {
+        display: block;
+        font-size: 1.2rem;
+        color: white;
+        padding: 0.5rem;
+    }
+
+    #accessibility-bar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0;
+        gap: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #accessibility-bar button {
+        background: transparent;
+        border: 1px solid white;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 5px;
+    }
+
+    #color-blind-options {
+        position: static;
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #color-blind-options button {
+        width: 100%;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .navbar-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001;
+        position: relative; /* Adicione isso para melhor controle do posicionamento */
+    }
+
+    .bar {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        transition: all 0.3s ease-in-out; /* Adicione 'all' para suavizar toda a transição */
+        border-radius: 2px;
+        display: block;
+        content: "";
+        position: absolute; /* Mude para absolute para melhor controle */
+    }
+
+    /* Posicione cada barra individualmente */
+    .bar:nth-child(1) {
+        top: 0;
+    }
+
+    .bar:nth-child(2) {
+        top: 9px; /* Exatamente no meio */
+    }
+
+    .bar:nth-child(3) {
+        top: 18px; /* Dobro da distância do meio */
+    }
+
+    /* Animação ajustada do X */
+    .navbar-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .navbar-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-20px); /* Opcional: faz a barra do meio deslizar para fora */
+    }
+
+    .navbar-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .profile-icon {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+    
+}

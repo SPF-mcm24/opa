@@ -317,18 +317,40 @@
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-logo">Projeto Condomel</a>
+            
+            <div class="navbar-toggle" id="mobile-menu">
+                <span class="bar">&nbsp;</span>
+                <span class="bar">&nbsp;</span>
+                <span class="bar">&nbsp;</span>
+            </div>
+    
+    
             <ul class="navbar-menu">
+                <div class="para-mobile">
+                    <div class="profile-container">
+                        <i class="fas fa-user profile-icon"></i>
+                    </div>
+                </div>
+                
                 <li><a href="sobre.html">Sobre o Projeto</a></li>
                 <li><a href="condomeis.html">Condomeis</a></li>
                 <li><a href="comunidade.html">Comunidade</a></li>
+                
                 <div id="accessibility-bar">
-                    <button id="increase-font" title="Aumentar tamanho da fonte"><i class="fas fa-plus"></i></button>
-                    <button id="decrease-font" title="Diminuir tamanho da fonte"><i class="fas fa-minus"></i></button>
-                    <button id="high-contrast" title="Alto contraste"><i class="fas fa-adjust"></i></button> 
+                    <button id="increase-font" title="Aumentar tamanho da fonte">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button id="decrease-font" title="Diminuir tamanho da fonte">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button id="high-contrast" title="Alto contraste">
+                        <i class="fas fa-adjust"></i>
+                    </button>
                     <button id="color-blind-toggle" title="Opções de daltonismo">
                         <i class="fas fa-eye"></i>
                     </button>
                 </div>
+    
                 <div id="color-blind-options" class="hidden">
                     <button data-filter="protanopia">Protanopia</button>
                     <button data-filter="protanomaly">Protanomalia</button>
@@ -340,13 +362,13 @@
                     <button data-filter="achromatomaly">Acromatopsia Parcial</button>
                     <button data-filter="normal">Visão Normal</button>
                 </div>
-                <li><i class="fas fa-user profile-icon"></i></li>
+    
+                <div class="para-pc">
+                    <div class="profile-container">
+                        <i class="fas fa-user profile-icon"></i>
+                    </div>
+                </div>
             </ul>
-            <div class="navbar-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </div>
     </nav>
 

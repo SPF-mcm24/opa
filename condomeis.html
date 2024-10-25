@@ -1,3 +1,4 @@
+<!-- condomeis.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -138,12 +139,19 @@
 @media (max-width: 768px) {
     .condomeis-grid {
         grid-template-columns: 1fr;
+        padding: 0;
+        margin-bottom: 1em;
     }
 
     .circuito-highlights,
     .importancia-grid {
         grid-template-columns: 1fr;
     }
+    .condomeis-intro h2{
+        font-size: 1.5rem;
+    }
+    
+    
 }
     </style>
 </head>
@@ -210,6 +218,7 @@
         </div>
     </nav>
 
+    <div class="content-wrapper" id="content-wrapper">
     <main class="condomeis-page">
         <section class="hero">
             <h1>Condomeis</h1>
@@ -223,7 +232,7 @@
 
         <section class="condomeis-grid">
             <article class="condomel-card">
-                <img src="jatai.jpg" alt="Jataí">
+                <img src="img/jatai.jpg" alt="Jataí">
                 <div class="card-content">
                     <h2>CONDOMEL</h2>
                     <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
@@ -371,6 +380,7 @@
             </div>
         </div>
     </footer>
+</div>
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>

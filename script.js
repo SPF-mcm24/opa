@@ -1,3 +1,4 @@
+//script.js
 const pontos = [
     { nome: "Condomel – Big Bee Brasil", endereco: "R. Leonardo Meca, 56 – Centro", lat: -23.7095169, lng: -46.412993 },
     { nome: "Condomel – Câmara Municipal", endereco: "Rua Virgílio Gola, 40 – Pastoril", lat: -23.7112766, lng: -46.4112281 },

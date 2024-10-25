@@ -1,3 +1,4 @@
+/* style.css */
 :root {
     --primary-color: #FFA000;
     --secondary-color: #FFD54F;
@@ -71,47 +72,9 @@ body {
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap;
+    max-height: 400px;
+    overflow-y: auto;
 }
-body.high-contrast {
-    background-color: #000;
-    --primary-color: #050505;
-    --secondary-color: #000000;
-    --accent-color: #000000;
-    color: #fff;
-}
-
-body.high-contrast .card,
-body.high-contrast .card h3,
-body.high-contrast .hero,
-body.high-contrast .hero h2,
-body.high-contrast .content,
-body.high-contrast .pepta-section,
-body.high-contrast .pepta-section h3{
-    background-color: #333;
-    color: #fff;
-}
-
-body.high-contrast .section-title{
-    color: #FFFFFF;
-}
-
-body.high-contrast .highlight-item,
-body.high-contrast .pepta-quote,
-body.high-contrast .quote{
-    background-color: #000;
-    color: white;
-}
-
-body.high-contrast button {
-    background: black;
-}
-
-
-body.high-contrast .pontos-lista li:hover {
-    background-color: #222;
-    padding-left: 20px;
-} 
-
 
 #color-blind-options.hidden {
     display: none;
@@ -119,6 +82,71 @@ body.high-contrast .pontos-lista li:hover {
 
 #color-blind-options button {
     margin: 5px;
+}
+
+body.color-blind-filter {
+    filter: var(--filter);
+}
+/* Optional: Add a subtle scrollbar for better UX */
+#color-blind-options::-webkit-scrollbar {
+    width: 6px;
+}
+
+#color-blind-options::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 3px;
+}
+
+#color-blind-options::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Color blindness options styling */
+#color-blind-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+#color-blind-options.hidden {
+    display: none;
+}
+
+#color-blind-options button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#color-blind-options button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #color-blind-options {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+        top: 80px;
+        left: 0;
+        right: 0;
+        justify-content: center;
+    }
+    #accessibility-bar {
+        position: absolute;
+    }
 }
 
 .navbar {
@@ -133,24 +161,6 @@ body.high-contrast .pontos-lista li:hover {
     bottom: 30px;
     right: 30px;
     z-index: 1000;
-}
-
-body.color-blind-filter {
-    filter: var(--filter);
-}
-
-
-@media screen and (max-width: 768px) {
-    #accessibility-bar {
-        position: absolute;
-    }
-
-    #color-blind-options {
-        top: 80px;
-        left: 0;
-        right: 0;
-        justify-content: center;
-    }
 }
 header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -345,7 +355,8 @@ main {
 form {
     background-color: var(--card-bg);
     border-radius: 25px;
-    padding: 5rem;
+    
+    padding: 2rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
@@ -540,6 +551,7 @@ button:hover {
 @media (min-width: 768px) and (max-width: 1199px) {
     .content-grid {
         grid-template-columns: repeat(2, 1fr);
+        
     }
 }
 
@@ -660,6 +672,10 @@ button:hover {
     width: 100%;
     z-index: 1000;
     background-color: var(--primary-color);
+      /* Força um novo contexto de empilhamento */
+  transform: translateZ(0);
+  /* ou */
+  will-change: transform;
 }
 
 
@@ -744,52 +760,28 @@ button:hover {
     background: #fff;
 }
 
-@media screen and (max-width: 768px) {
-    .navbar-container {
-        padding: 0 30px;
-    }
-
-    .navbar-menu {
-        display: none;
-        position: absolute;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        background: var(--primary-color);
-        transition: all 0.5s ease;
-        flex-direction: column;
-    }
-
-    .navbar-menu.active {
-        left: 0;
-        display: flex;
-    }
-
-    .navbar-menu li {
-        height: 60px;
-    }
-
-    .navbar-toggle {
-        display: block;
-        cursor: pointer;
-    }
-
-    .navbar-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .navbar-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .navbar-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-}
 
 @media (max-width: 768px) {
     .pepta-section {
-        padding: 3rem;
+        padding: 1.5rem;
+    }
+
+    .pepta-section h3 {
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    .pepta-highlights{
+        display: none;
+    }
+
+    .pepta-quote{
+        font-size: 1.2em;
+        text-align: left;
+        margin: 1.7em 0;
+    }
+    .pepta-button{
+        padding: 1.2rem 1.3rem;
     }
 
     .highlight-item {
@@ -807,10 +799,24 @@ button:hover {
     text-align: center;
 }
 
+
 .hero h1 {
     color: var(--accent-color);
     font-size: 3.5rem;
     margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 2rem;
+        margin-bottom: 3rem;
+        border-radius: 15px;
+        text-align: justify;
+    }
+    .hero h1 {
+        font-size: 3em;
+    }
+
 }
 
 .hero .subtitle {
@@ -859,6 +865,13 @@ button:hover {
     padding: 0 1rem 1rem;
 }
 
+@media (max-width: 768px) {
+    .condomeis-intro h2{
+        font-size: 1.5rem;
+    }
+    
+}
+
 /* Estilos específicos para a página Comunidade */
 #photo-upload-form {
     display: flex;
@@ -904,6 +917,7 @@ main {
 
 .auth-container {
     background-color: var(--card-bg);
+    margin-top: 100px;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -1039,208 +1053,102 @@ main {
     }
 }
 
-/* Add these CSS rules to your existing stylesheet */
-
-/* Color blindness filters */
-body.color-blind-filter.protanopia {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="protanopia">\
-        <feColorMatrix type="matrix" values="0.567, 0.433, 0,     0, 0 \
-                                            0.558, 0.442, 0,     0, 0 \
-                                            0,     0.242, 0.758, 0, 0 \
-                                            0,     0,     0,     1, 0"/>\
-        </filter>\
-        </svg>#protanopia');
+/* Protanopia */
+.navbar.color-blind-filter.protanopia,
+#content-wrapper.color-blind-filter.protanopia {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="protanopia"><feColorMatrix type="matrix" values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#protanopia');
 }
 
-body.color-blind-filter.deuteranopia {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="deuteranopia">\
-        <feColorMatrix type="matrix" values="0.625, 0.375, 0,   0, 0 \
-                                            0.7,   0.3,   0,   0, 0 \
-                                            0,     0.3,   0.7, 0, 0 \
-                                            0,     0,     0,   1, 0"/>\
-        </filter>\
-        </svg>#deuteranopia');
+/* Deuteranopia */
+.navbar.color-blind-filter.deuteranopia,
+#content-wrapper.color-blind-filter.deuteranopia {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="deuteranopia"><feColorMatrix type="matrix" values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#deuteranopia');
 }
 
-body.color-blind-filter.tritanopia {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="tritanopia">\
-        <feColorMatrix type="matrix" values="0.95, 0.05,  0,     0, 0 \
-                                            0,    0.433, 0.567, 0, 0 \
-                                            0,    0.475, 0.525, 0, 0 \
-                                            0,    0,     0,     1, 0"/>\
-        </filter>\
-        </svg>#tritanopia');
+/* Tritanopia */
+.navbar.color-blind-filter.tritanopia,
+#content-wrapper.color-blind-filter.tritanopia {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="tritanopia"><feColorMatrix type="matrix" values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#tritanopia');
 }
 
-body.color-blind-filter.deuteranomaly {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="deuteranomaly">\
-        <feColorMatrix type="matrix" values="0.8,   0.2,   0,     0, 0 \
-                                            0.258, 0.742, 0,     0, 0 \
-                                            0,     0.142, 0.858, 0, 0 \
-                                            0,     0,     0,     1, 0"/>\
-        </filter>\
-        </svg>#deuteranomaly');
+/* Deuteranopia */
+.navbar.color-blind-filter.deuteranopia,
+#content-wrapper.color-blind-filter.deuteranopia {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="deuteranopia"><feColorMatrix type="matrix" values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#deuteranopia');
 }
 
-body.color-blind-filter.tritanomaly {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="tritanomaly">\
-        <feColorMatrix type="matrix" values="0.967, 0.033, 0,     0, 0 \
-                                            0,     0.733, 0.267, 0, 0 \
-                                            0,     0.183, 0.817, 0, 0 \
-                                            0,     0,     0,     1, 0"/>\
-        </filter>\
-        </svg>#tritanomaly');
+/* Tritanopia */
+.navbar.color-blind-filter.tritanopia,
+#content-wrapper.color-blind-filter.tritanopia {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="tritanopia"><feColorMatrix type="matrix" values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#tritanopia');
 }
 
-body.color-blind-filter.achromatopsia {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="achromatopsia">\
-        <feColorMatrix type="matrix" values="0.299, 0.587, 0.114, 0, 0 \
-                                            0.299, 0.587, 0.114, 0, 0 \
-                                            0.299, 0.587, 0.114, 0, 0 \
-                                            0,     0,     0,     1, 0"/>\
-        </filter>\
-        </svg>#achromatopsia');
-}
-/* Adding the missing filters */
-body.color-blind-filter.protanomaly {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="protanomaly">\
-        <feColorMatrix type="matrix" values="0.817, 0.183, 0, 0, 0 \
-                                            0.333, 0.667, 0, 0, 0 \
-                                            0, 0.125, 0.875, 0, 0 \
-                                            0, 0, 0, 1, 0"/>\
-        </filter>\
-        </svg>#protanomaly');
+/* Deuteranomaly */
+.navbar.color-blind-filter.deuteranomaly,
+#content-wrapper.color-blind-filter.deuteranomaly {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="deuteranomaly"><feColorMatrix type="matrix" values="0.8, 0.2, 0, 0, 0 0.258, 0.742, 0, 0, 0 0, 0.142, 0.858, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#deuteranomaly');
 }
 
-body.color-blind-filter.deuteranomaly {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="deuteranomaly">\
-        <feColorMatrix type="matrix" values="0.8, 0.2, 0, 0, 0 \
-                                            0.258, 0.742, 0, 0, 0 \
-                                            0, 0.142, 0.858, 0, 0 \
-                                            0, 0, 0, 1, 0"/>\
-        </filter>\
-        </svg>#deuteranomaly');
+/* Tritanomaly */
+.navbar.color-blind-filter.tritanomaly,
+#content-wrapper.color-blind-filter.tritanomaly {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="tritanomaly"><feColorMatrix type="matrix" values="0.967, 0.033, 0, 0, 0 0, 0.733, 0.267, 0, 0 0, 0.183, 0.817, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#tritanomaly');
 }
 
-body.color-blind-filter.tritanomaly {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="tritanomaly">\
-        <feColorMatrix type="matrix" values="0.967, 0.033, 0, 0, 0 \
-                                            0, 0.733, 0.267, 0, 0 \
-                                            0, 0.183, 0.817, 0, 0 \
-                                            0, 0, 0, 1, 0"/>\
-        </filter>\
-        </svg>#tritanomaly');
+/* Achromatopsia */
+.navbar.color-blind-filter.achromatopsia,
+#content-wrapper.color-blind-filter.achromatopsia {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="achromatopsia"><feColorMatrix type="matrix" values="0.299, 0.587, 0.114, 0, 0 0.299, 0.587, 0.114, 0, 0 0.299, 0.587, 0.114, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#achromatopsia');
 }
 
-body.color-blind-filter.achromatomaly {
-    filter: url('data:image/svg+xml,\
-        <svg xmlns="http://www.w3.org/2000/svg">\
-        <filter id="achromatomaly">\
-        <feColorMatrix type="matrix" values="0.618, 0.320, 0.062, 0, 0 \
-                                            0.163, 0.775, 0.062, 0, 0 \
-                                            0.163, 0.320, 0.516, 0, 0 \
-                                            0, 0, 0, 1, 0"/>\
-        </filter>\
-        </svg>#achromatomaly');
+/* Protanomaly */
+.navbar.color-blind-filter.protanomaly,
+#content-wrapper.color-blind-filter.protanomaly {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="protanomaly"><feColorMatrix type="matrix" values="0.817, 0.183, 0, 0, 0 0.333, 0.667, 0, 0, 0 0, 0.125, 0.875, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#protanomaly');
 }
 
-/* Adjust the dropdown to accommodate more options */
-#color-blind-options {
-    max-height: 400px;
-    overflow-y: auto;
+/* Achromatomaly */
+.navbar.color-blind-filter.achromatomaly,
+#content-wrapper.color-blind-filter.achromatomaly {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="achromatomaly"><feColorMatrix type="matrix" values="0.618, 0.320, 0.062, 0, 0 0.163, 0.775, 0.062, 0, 0 0.163, 0.320, 0.516, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#achromatomaly');
+}
+/* Protanopia */
+.navbar.color-blind-filter.protanopia,
+#content-wrapper.color-blind-filter.protanopia {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="protanopia-filter"><feColorMatrix type="matrix" values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#protanopia-filter');
 }
 
-/* Optional: Add a subtle scrollbar for better UX */
-#color-blind-options::-webkit-scrollbar {
-    width: 6px;
+/* Deuteranopia */
+.navbar.color-blind-filter.deuteranopia,
+#content-wrapper.color-blind-filter.deuteranopia {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="deuteranopia-filter"><feColorMatrix type="matrix" values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#deuteranopia-filter');
 }
 
-#color-blind-options::-webkit-scrollbar-thumb {
-    background-color: var(--accent-color);
-    border-radius: 3px;
+/* Tritanopia */
+.navbar.color-blind-filter.tritanopia,
+#content-wrapper.color-blind-filter.tritanopia {
+    filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="tritanopia-filter"><feColorMatrix type="matrix" values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#tritanopia-filter');
 }
-
-#color-blind-options::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Color blindness options styling */
-#color-blind-options {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: var(--primary-color);
-    padding: 10px;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-}
-
-#color-blind-options.hidden {
-    display: none;
-}
-
-#color-blind-options button {
-    background: none;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: left;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#color-blind-options button:hover {
-    background-color: var(--accent-color);
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-    #color-blind-options {
-        position: static;
-        width: 100%;
-        margin-top: 10px;
-    }
-}
-/* ... (seu CSS existente) ... */
-
-/* Filtro de alto contraste preto e branco */
 body.high-contrast {
+    background-color: #000;
+    --primary-color: #050505;
+    --secondary-color: #000000;
+    --accent-color: #000000;
+    color: #fff;
     filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(5deg) saturate(13) contrast(105%);
     -webkit-filter: grayscale(100%) brightness(100%) sepia(100%) hue-rotate(5deg) saturate(13) contrast(105%);
 }
 
-body.high-contrast * {  /* Aplica a todos os elementos dentro do body */
-    background-color: inherit !important; /* Define o fundo como herdado para evitar conflitos */
-    color: inherit !important; /* Define a cor do texto como herdada para evitar conflitos */
-    border-color: inherit !important; /* Define a cor da borda como herdada para evitar conflitos */
+body.high-contrast *,
+body.high-contrast img {  
+    background-color: inherit !important; 
+    color: inherit !important; 
+    border-color: inherit !important; 
 }
 
-body.high-contrast img { /* Ajusta imagens para alto contraste */
-    opacity: 0.8; /* Reduz ligeiramente a opacidade das imagens */
+body.high-contrast img { 
+    opacity: 0.8;
 }
-
-/* ... (resto do seu CSS) ... */ 
 
 @media screen and (min-width: 769px) {
     .para-pc{
@@ -1305,6 +1213,7 @@ body.high-contrast img { /* Ajusta imagens para alto contraste */
     .navbar-menu li {
         width: 100%;
         text-align: center;
+        height: 60px;
         padding: 1rem 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -1315,6 +1224,7 @@ body.high-contrast img { /* Ajusta imagens para alto contraste */
         color: white;
         padding: 0.5rem;
     }
+
 
     /* Ajustes na barra de acessibilidade */
     #accessibility-bar {
@@ -1411,11 +1321,4 @@ body.high-contrast img { /* Ajusta imagens para alto contraste */
         width: 100px;
         height: 100px;
     }
-    .navbar-menu li {
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
 }
-

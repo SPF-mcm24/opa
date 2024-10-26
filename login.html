@@ -196,12 +196,32 @@ fontSize -= 2;
 document.body.style.fontSize = fontSize + 'px';
 });
 
+</script>
+
+<script>
 const highContrastButton = document.getElementById('high-contrast');
 const body = document.body;
 
 highContrastButton.addEventListener('click', () => {
-body.classList.toggle('high-contrast');
+    body.classList.toggle('high-contrast');
+
+    // Seleciona todos os elementos que precisam da borda
+    const elements = document.querySelectorAll('.hero, .card, .pepta-section, main, footer, .scroll-to-top, nav, .auth-tabs, .auth-content, .bar');
+
+    elements.forEach(element => {
+        if (element.style.border && element.style.borderRadius) {
+            // Remove a borda e o border-radius se já estiverem aplicados
+            element.style.border = '';
+            element.style.borderRadius = '';
+        } else {
+            // Adiciona o estilo de borda e border-radius
+            element.style.border = '1px solid var(--primary-color)';
+            element.style.borderRadius = '10px'; // Ajuste o valor para o desejado
+        }
+    });
 });
+
+
 </script>
 </body>
 </html>

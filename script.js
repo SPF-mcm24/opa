@@ -72,32 +72,6 @@ verMaisBtn.addEventListener('click', function() {
 
 pontosList.parentNode.appendChild(verMaisBtn);
 
-const scrollToTopButton = document.getElementById('scrollToTop');
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollToTopButton.style.display = 'block';
-    } else {
-        scrollToTopButton.style.display = 'none';
-    }
-});
-
-scrollToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -137,20 +111,6 @@ function changeFontSize(direction) {
   }
   document.body.style.fontSize = currentFontSize + '%';
 }
-
-
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const scrollToTopButton = document.getElementById('scrollToTop');
-    
-    if (window.pageYOffset > 100) {
-        navbar.classList.add('fixed');
-        scrollToTopButton.style.display = 'block';
-    } else {
-        navbar.classList.remove('fixed');
-        scrollToTopButton.style.display = 'none';
-    }
-});
 
   
   document.getElementById('increase-font').addEventListener('click', () => changeFontSize('increase'));

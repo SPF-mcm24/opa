@@ -156,10 +156,7 @@
     </style>
 </head>
 <body>
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper></div>
-    </div>
+
     <nav class="navbar" id="navbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-logo">Projeto Condomel</a>
@@ -380,29 +377,29 @@
             </div>
         </div>
     </footer>
-            <!-- SEPARAR DPS PARA NAO FICAR BUGADO COM O FILTRO -->
-            <div class="scroll-to-top" id="scrollToTop">
-                <i class="fas fa-chevron-up"></i>
-            </div>
+
 </div>
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-          <div class="vw-plugin-top-wrapper"></div>
-        </div>
-      </div>
+
+<div class="scroll fixed-position" id="scroll">
+    <!-- SEPARAR DPS PARA NAO FICAR BUGADO COM O FILTRO -->
+<div class="scroll-to-top" id="scrollToTop">
+    <i class="fas fa-chevron-up"></i>
+</div>
+</div>
+<div class="libras" id="libras">
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+</div>
       <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
       <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
       </script>
     <script src="accessibility.js"></script>
     <script>
-        const mobileMenu = document.getElementById('mobile-menu');
-const navbarMenu = document.querySelector('.navbar-menu');
-
-mobileMenu.addEventListener('click', () => {
-  navbarMenu.classList.toggle('active');
-});
 
 
 // Acessibilidade
@@ -428,10 +425,17 @@ decreaseFontButton.addEventListener('click', () => {
 const highContrastButton = document.getElementById('high-contrast');
 const contentWrapper = document.getElementById('content-wrapper');
 const navbar = document.getElementById('navbar');
+const libras_scroll = document.getElementById('scroll');
+const libras = document.getElementById('libras');
+
 
 highContrastButton.addEventListener('click', () => {
     contentWrapper.classList.toggle('high-contrast');
     navbar.classList.toggle('high-contrast');
+    libras_scroll.classList.toggle('high-contrast')
+    libras.classList.toggle('high-contrast')
+    libras_scroll.style.position = 'fixed';
+    libras.style.position = 'fixed';
 
     // Seleciona todos os elementos que precisam da borda
     const elements = document.querySelectorAll('.hero, .card, .pepta-section, main, footer, .scroll-to-top, nav, .bar, .condomeis-intro, .condomel-card');
@@ -450,8 +454,19 @@ highContrastButton.addEventListener('click', () => {
 });
 
 
+
     
     </script>
+    <script>
+        const mobileMenu = document.querySelector('#mobile-menu');
+        const navbarMenu = document.querySelector('.navbar-menu');
+        // Toggle menu mobile
+        mobileMenu.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        navbarMenu.classList.toggle('active');
+        document.body.style.overflow = navbarMenu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+</script>
     <script src="script.js"></script> </body>
     <script src="scroll.js"></script>
 </html>

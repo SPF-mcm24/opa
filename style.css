@@ -903,10 +903,6 @@ button:hover {
     gap: 1rem;
 }
 
-/* Ajuste para o conteúdo ficar abaixo da navbar fixa */
-main {
-    padding-top: 100px;
-}
 
 .auth-section {
     max-width: 400px;
@@ -1127,9 +1123,10 @@ main {
 #content-wrapper.color-blind-filter.tritanopia {
     filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="tritanopia-filter"><feColorMatrix type="matrix" values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#tritanopia-filter');
 }
-body.high-contrast {
+.high-contrast {
     background-color: #000;
     --primary-color: #050505;
+    --borda-color: #FFA000;
     --secondary-color: #000000;
     --accent-color: #000000;
     color: #fff;
@@ -1137,14 +1134,14 @@ body.high-contrast {
     -webkit-filter: grayscale(100%) brightness(100%) sepia(100%) hue-rotate(5deg) saturate(13) contrast(105%);
 }
 
-body.high-contrast *,
-body.high-contrast img {  
+.high-contrast *,
+.high-contrast img {  
     background-color: inherit !important; 
     color: inherit !important; 
     border-color: inherit !important; 
 }
 
-body.high-contrast img { 
+.high-contrast img { 
     opacity: 0.8;
 }
 

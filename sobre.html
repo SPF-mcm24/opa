@@ -319,7 +319,7 @@
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper></div>
     </div>
-    <nav class="navbar">
+    <nav class="navbar"  id="navbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-logo">Projeto Condomel</a>
             
@@ -667,13 +667,15 @@ decreaseFontButton.addEventListener('click', () => {
     </script>
         <script>
 const highContrastButton = document.getElementById('high-contrast');
-const body = document.body;
+const contentWrapper = document.getElementById('content-wrapper');
+const navbar = document.getElementById('navbar');
 
 highContrastButton.addEventListener('click', () => {
-    body.classList.toggle('high-contrast');
+    contentWrapper.classList.toggle('high-contrast');
+    navbar.classList.toggle('high-contrast');
 
     // Seleciona todos os elementos que precisam da borda
-    const elements = document.querySelectorAll('.hero, .card, .pepta-section, main, footer, .scroll-to-top, nav, .auth-tabs, .auth-content, .bee-card, .modal-content, .bar');
+    const elements = document.querySelectorAll('.hero, .card, .pepta-section, main, footer, .scroll-to-top, nav, span.bar');
 
     elements.forEach(element => {
         if (element.style.border && element.style.borderRadius) {
@@ -682,11 +684,12 @@ highContrastButton.addEventListener('click', () => {
             element.style.borderRadius = '';
         } else {
             // Adiciona o estilo de borda e border-radius
-            element.style.border = '1px solid var(--primary-color)';
+            element.style.border = '1px solid var(--borda-color)';
             element.style.borderRadius = '10px'; // Ajuste o valor para o desejado
         }
     });
-});     
+});
+ 
         </script>
         <script src="scroll.js"></script>
 </body>

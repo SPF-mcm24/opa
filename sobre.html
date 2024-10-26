@@ -217,6 +217,99 @@
 #content-wrapper.color-blind-filter.tritanopia {
     filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="tritanopia-filter"><feColorMatrix type="matrix" values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#tritanopia-filter');
 }
+.bee-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bee-table th, 
+.bee-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.bee-table th {
+    background-color: #FFA000;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bee-table tr:last-child td {
+    border-bottom: none;
+}
+
+.bee-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.bee-table tr:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+/* Cards para dispositivos móveis */
+.bee-cards {
+    display: none;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.bee-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem;
+    border-left: 4px solid #FFA000;
+}
+
+.bee-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.bee-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.bee-card-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+}
+
+.bee-card-content {
+    color: #444;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+/* Media Query para dispositivos móveis */
+@media (max-width: 768px) {
+    .bee-table {
+        display: none;
+    }
+    
+    .bee-cards {
+        display: flex;
+        flex-direction: column;
+    }
+}
         
     </style>
 
@@ -240,7 +333,7 @@
             <ul class="navbar-menu">
                 <div class="para-mobile">
                     <div class="profile-container">
-                        <i class="fas fa-user profile-icon"></i>
+                        <i class="fas fa-user profile-icon" onclick="window.location.href='login.html';"></i>
                     </div>
                 </div>
                 
@@ -277,7 +370,7 @@
     
                 <div class="para-pc">
                     <div class="profile-container">
-                        <i class="fas fa-user profile-icon"></i>
+                        <i class="fas fa-user profile-icon" onclick="window.location.href='login.html';"></i>
                     </div>
                 </div>
             </ul>
@@ -310,7 +403,7 @@
 
         <section class="content card">
             <h2>Abelhas do Circuito</h2>
-            <table>
+            <table class="bee-table">
                 <thead>
                     <tr>
                         <th>Nome Popular</th>
@@ -362,6 +455,104 @@
                 </tbody>
             </table>
         </section>
+
+        <div class="bee-cards">
+            <div class="bee-card">
+                <div class="bee-card-header">
+                    <div>
+                        <h3 class="bee-card-title">Manduri</h3>
+                        <p class="bee-card-subtitle">Melipona Marginata</p>
+                    </div>
+                </div>
+                <div class="bee-card-content">
+                    Produz bastante mel apesar do tamanho pequeno, nidifica em pequenos troncos e até construções humanas, ligeiramente defensivas.
+                </div>
+            </div>
+        
+            <div class="bee-card">
+                <div class="bee-card-header">
+                    <div>
+                        <h3 class="bee-card-title">Mirim Emerina</h3>
+                        <p class="bee-card-subtitle">Plebeia Emerina</p>
+                    </div>
+                </div>
+                <div class="bee-card-content">
+                    Ótima polinizadora, produz pouco mel, constrói favos horizontais.
+                </div>
+            </div>
+        
+            <div class="bee-card">
+                <div class="bee-card-header">
+                    <div>
+                        <h3 class="bee-card-title">Jataí</h3>
+                        <p class="bee-card-subtitle">Tetragonisca angustula</p>
+                    </div>
+                </div>
+                <div class="bee-card-content">
+                    Corpo amarelo e olhos verdes, comum em todo o país, não ameaça humanos, nidifica em árvores.
+                </div>
+            </div>
+        
+            <div class="bee-card">
+                <div class="bee-card-header">
+                    <div>
+                        <h3 class="bee-card-title">Mandaçaia</h3>
+                        <p class="bee-card-subtitle">Melipona quadrifasciata</p>
+                    </div>
+                </div>
+                <div class="bee-card-content">
+                    Dócil e produtora de mel, marca ninhos com barro em forma de raios.
+                </div>
+            </div>
+        
+            <div class="bee-card">
+                <div class="bee-card-header">
+                    <div>
+                        <h3 class="bee-card-title">Mirim-Guaçú</h3>
+                        <p class="bee-card-subtitle">Plebeia remota</p>
+                    </div>
+                </div>
+                <div class="bee-card-content">
+                    Dócil, vista polinizando jardins urbanos, ninhos em árvores ou locais rochosos.
+                </div>
+            </div>
+        
+            <div class="bee-card">
+                <div class="bee-card-header">
+                    <div>
+                        <h3 class="bee-card-title">Mirim-Droryana</h3>
+                        <p class="bee-card-subtitle">Plebeia droryana</p>
+                    </div>
+                </div>
+                <div class="bee-card-content">
+                    Dócil, cria ninhos em ocos de árvores ou rochas, entrada em formato de lábio.
+                </div>
+            </div>
+        
+            <div class="bee-card">
+                <div class="bee-card-header">
+                    <div>
+                        <h3 class="bee-card-title">Bugia</h3>
+                        <p class="bee-card-subtitle">Melipona Mondury</p>
+                    </div>
+                </div>
+                <div class="bee-card-content">
+                    Alta produção de mel, habita a Mata Atlântica.
+                </div>
+            </div>
+        
+            <div class="bee-card">
+                <div class="bee-card-header">
+                    <div>
+                        <h3 class="bee-card-title">Iraí</h3>
+                        <p class="bee-card-subtitle">Nannotrigona Testaceicomes</p>
+                    </div>
+                </div>
+                <div class="bee-card-content">
+                    Dóceis e amigáveis, criam ninhos em ocos de árvores, pedras e cercas.
+                </div>
+            </div>
+        </div>
 
         <section class="content card">
             <h2>Compromisso com a Sustentabilidade</h2>

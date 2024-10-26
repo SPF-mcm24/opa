@@ -396,6 +396,65 @@
 #content-wrapper.color-blind-filter.tritanopia {
     filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="tritanopia-filter"><feColorMatrix type="matrix" values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"/></filter></svg>#tritanopia-filter');
 }
+.search-container {
+    max-width: 800px;
+    max-height: 50px;
+    margin: -30px auto 40px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 20px;
+    max-height: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.post-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 45px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.post-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.post-button i {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        margin: -20px 20px 30px;
+        flex-direction: column;
+        max-height: none;
+        gap: 0.5rem;
+    }
+    
+    .post-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
     </style>
 </head>
 <body>
@@ -417,7 +476,7 @@
             <ul class="navbar-menu">
                 <div class="para-mobile">
                     <div class="profile-container">
-                        <i class="fas fa-user profile-icon"></i>
+                        <i class="fas fa-user profile-icon" onclick="window.location.href='login.html';"></i>
                     </div>
                 </div>
                 
@@ -454,7 +513,7 @@
     
                 <div class="para-pc">
                     <div class="profile-container">
-                        <i class="fas fa-user profile-icon"></i>
+                        <i class="fas fa-user profile-icon" onclick="window.location.href='login.html';"></i>
                     </div>
                 </div>
             </ul>
@@ -482,6 +541,10 @@
                     <a href="#">Menos visualizados</a>
                 </div>
             </div>
+            <button class="post-button" onclick="window.location.href='postar.html';">
+                <i class="fas fa-plus"></i>
+                Postar
+            </button>
         </div>
 
         <section class="content">
